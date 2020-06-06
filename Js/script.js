@@ -46,6 +46,7 @@ function porcentagem() {
     var caracteres = nmrTela.innerHTML.split(' ')
     var valorPorCento = parseFloat(caracteres[2]) / 100
     nmrTela.innerHTML+= '%'
+    console.log(nmrTela.innerHTML)
     valores.push(valorPorCento)
 }
 
