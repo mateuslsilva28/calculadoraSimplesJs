@@ -24,6 +24,7 @@ function multiplicar(){
 
 function dividir(){
     verificar('/')
+    console.log('é')
 }
 
 function verificar(sinal){
