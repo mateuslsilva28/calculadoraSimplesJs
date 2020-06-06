@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+</head>
+<body>
+    <article class="container">
+        <section id="calculadora">
+            <div id="container-resultado">
+                <button id="resultado" name="resultado">0</button>
+            </div>
+            <section class="areaBotoes">
+                <button class="botao" id="apagar" onclick="limpar()">CE</button>
+                <button class="botao" id="apagar" onclick="apagarUltimo()">&#8592;</button>
+                <button class="botao" id="porcentagem">%</button>
+                <button class="botao" id="soma" onclick="somar()">+</button>
+                <button class="botao" id="sete" onclick="pegarNumero(7)">7</button>
+                <button class="botao" id="oito" onclick="pegarNumero(8)">8</button>
+                <button class="botao" id="nove" onclick="pegarNumero(9)">9</button>
+                <button class="botao" id="subtrair" onclick="subtrair()">-</button>
+                <button class="botao" id="quatro" onclick="pegarNumero(4)">4</button>
+                <button class="botao" id="cinco" onclick="pegarNumero(5)">5</button>
+                <button class="botao" id="seis" onclick="pegarNumero(6)">6</button>
+                <button class="botao" id="multiplicar" onclick="multiplicar()">X</button>
+                <button class="botao" id="um" onclick="pegarNumero(1)">1</button>
+                <button class="botao" id="dois" onclick="pegarNumero(2)">2</button>
+                <button class="botao" id="3" onclick="pegarNumero(3)">3</button>
+                <button class="botao" id="dividir" onclick="dividir()">&#247;</button>
+                <button class="botao" id="0" onclick="pegarNumero(0)">0</button>
+                <button class="botao" id="mais/menos" onclick="mudarSinal()">&#177;</button>
+                <button class="botao" id="virgula" onclick="colocarPonto()">.</button>
+                <button class="botao" id="igual" onclick="darResultado()">=</button>
+            </section>
+        </section>
+    </article>
+
+    <script src="Js/script.js"></script>
+</body>
+</html>
