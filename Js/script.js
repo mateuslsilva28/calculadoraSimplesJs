@@ -24,7 +24,6 @@ function multiplicar(){
 
 function dividir(){
     verificar('/')
-    console.log('é')
 }
 
 function verificar(sinal){
@@ -42,7 +41,7 @@ function verificar(sinal){
     valores.push(sinal)
 }
 
-function porcentagem() {
+function porcentagem () {
     var caracteres = nmrTela.innerHTML.split(' ')
     var valorPorCento = parseFloat(caracteres[2]) / 100
     nmrTela.innerHTML+= '%'
