@@ -28,7 +28,6 @@ function dividir(){
 }
 
 function verificar(sinal){
-    console.log()
     var caracteres = nmrTela.innerHTML.split('')
     if (caracteres[0] != sinal){
         valoresEspaco = nmrTela.innerHTML.split(' ')
@@ -41,6 +40,13 @@ function verificar(sinal){
         nmrTela.innerHTML+= ` ${sinal} `
     }
     valores.push(sinal)
+}
+
+function porcentagem() {
+    var caracteres = nmrTela.innerHTML.split(' ')
+    var valorPorCento = parseFloat(caracteres[2]) / 100
+    nmrTela.innerHTML+= '%'
+    valores.push(valorPorCento)
 }
 
 function colocarPonto(){

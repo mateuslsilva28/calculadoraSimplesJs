@@ -32,6 +32,7 @@ body {
     text-align: right;
     background-color: #fff;
     border: 1px solid #aaa;
+    font-size: 120%;
 }
 
 .areaBotoes{
@@ -48,4 +49,11 @@ body {
     margin-top: 5px;
     font-size: 106%;
     font-weight: bold;
+}
+
+@media (max-width:600px){
+    #calculadora {
+        width: 78%;
+        height: 78%;    
+    }   
 }
