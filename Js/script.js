@@ -131,13 +131,23 @@ function limpar(){
 
 function apagarUltimo (){
     var caracteres = nmrTela.innerHTML.split('')
-    caracteres.pop()
-    var arrayCaracteresTela = ""
-    for(let i in caracteres){arrayCaracteresTela += caracteres[i]}
-    if((arrayCaracteresTela == [])||(arrayCaracteresTela == '-')){
-        nmrTela.innerHTML = 0
-    }
-    else{
-        nmrTela.innerHTML = arrayCaracteresTela
-    }
+    console.log(caracteres)
+    for(let i in caracteres){
+        if(caracteres[i] == " "){
+            caracteres.pop()
+            caracteres.pop()
+            valores.pop()
+        }
+        else {
+            caracteres.pop()
+            var arrayCaracteresTela = ""
+            for(let i in caracteres){arrayCaracteresTela += caracteres[i]}
+            if((arrayCaracteresTela == [])||(arrayCaracteresTela == '-')){
+                nmrTela.innerHTML = 0
+            }
+            else{
+                nmrTela.innerHTML = arrayCaracteresTela
+            }
+        }
+    }   
 }
