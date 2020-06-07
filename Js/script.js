@@ -27,10 +27,12 @@ function dividir(){
 }
 
 function verificar(sinal){
-    valoresEspaco = nmrTela.innerHTML.split(' ')
-    valores.push(parseFloat(nmrTela.innerHTML))
-    nmrTela.innerHTML+= ` ${sinal} `
-    valores.push(sinal)
+    if(valores.length<=1){
+        valoresEspaco = nmrTela.innerHTML.split(' ')
+        valores.push(parseFloat(nmrTela.innerHTML))
+        nmrTela.innerHTML+= ` ${sinal} `
+        valores.push(sinal)
+    }
 }
 
 function porcentagem () {
