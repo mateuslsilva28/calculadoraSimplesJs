@@ -4,9 +4,9 @@ Criando uma calculadora simples com JavaScript
 
 Essa calculadora funciona para calcular apenas dois valores.
 
-#*Algumas Funcionalidades*
+# *Algumas Funcionalidades*
 
-##Fazer os cálculos com teclas do teclado
+## Fazer os cálculos com teclas do teclado
 - Tecla 0 Insere o número 0
 - Tecla 1 Insere o número 1
 - Tecla 2 Insere o número 2
