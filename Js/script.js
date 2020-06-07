@@ -130,24 +130,16 @@ function limpar(){
 }
 
 function apagarUltimo (){
-    var caracteres = nmrTela.innerHTML.split('')
+    var caracteres = nmrTela.innerHTML.trim().split('')
+    var arrayCaracteresTela = ""
+    caracteres.pop()
     console.log(caracteres)
-    for(let i in caracteres){
-        if(caracteres[i] == " "){
-            caracteres.pop()
-            caracteres.pop()
-            valores.pop()
-        }
-        else {
-            caracteres.pop()
-            var arrayCaracteresTela = ""
-            for(let i in caracteres){arrayCaracteresTela += caracteres[i]}
-            if((arrayCaracteresTela == [])||(arrayCaracteresTela == '-')){
-                nmrTela.innerHTML = 0
-            }
-            else{
-                nmrTela.innerHTML = arrayCaracteresTela
-            }
-        }
-    }   
+    for(let i in caracteres){arrayCaracteresTela += caracteres[i]}
+    if((arrayCaracteresTela == [])||(arrayCaracteresTela == '-')){
+        nmrTela.innerHTML = 0
+    }
+    else{
+        nmrTela.innerHTML = arrayCaracteresTela
+    }
+    
 }
