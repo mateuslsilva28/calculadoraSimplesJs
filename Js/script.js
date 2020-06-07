@@ -1,6 +1,7 @@
 const nmrTela = document.getElementById("resultado")
 var valoresEspaco = '';
 var valores = []
+window.addEventListener("keydown", move);
 
 function pegarNumero(numero){
     if(nmrTela.innerHTML == "0"){
@@ -145,4 +146,59 @@ function apagarUltimo (){
         valores.pop()
         valores.pop()
     }
+}
+
+function move(){
+    var tecla=event.keyCode;
+    
+    switch(tecla){
+        case 48:
+            pegarNumero(0)
+            break;
+        case 49: 
+            pegarNumero(1) 
+            break;
+        case 50:
+            pegarNumero(2)
+            break;
+        case 51:
+            pegarNumero(3)
+            break
+        case 52:
+            pegarNumero(4)
+            break;
+        case 53:
+            pegarNumero(5)
+            break;
+        case 54: 
+            pegarNumero(6) 
+            break;
+        case 55:
+            pegarNumero(7)
+            break;
+        case 56:
+            pegarNumero(8)
+            break
+        case 57:
+            pegarNumero(9)
+            break;
+        case 88:
+            multiplicar()
+            break;
+        case 193:
+            dividir()
+            break;
+        case 187:
+            somar()
+            break;
+        case 189:
+            subtrair()
+        case 13:
+            darResultado()
+            break;
+        case 8:
+            apagarUltimo()
+            break;
+    }
+    console.log(tecla)
 }
