@@ -191,13 +191,23 @@ function move(){
         case 187:
             somar()
             break;
+        case 188:
+            colocarPonto()
+            break;
         case 189:
-            subtrair()
+            subtrair();
+            break;
+        case 190:
+            colocarPonto()
+            break;
         case 13:
             darResultado()
             break;
         case 8:
             apagarUltimo()
+            break;
+        case 27:
+            limpar();
             break;
     }
     console.log(tecla)
