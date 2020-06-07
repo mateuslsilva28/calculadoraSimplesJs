@@ -133,7 +133,6 @@ function apagarUltimo (){
     var caracteres = nmrTela.innerHTML.trim().split('')
     var arrayCaracteresTela = ""
     caracteres.pop()
-    console.log(caracteres)
     for(let i in caracteres){arrayCaracteresTela += caracteres[i]}
     if((arrayCaracteresTela == [])||(arrayCaracteresTela == '-')){
         nmrTela.innerHTML = 0
@@ -142,4 +141,8 @@ function apagarUltimo (){
         nmrTela.innerHTML = arrayCaracteresTela
     }
     
+    if(caracteres.length == 0){
+        valores.pop()
+        valores.pop()
+    }
 }
