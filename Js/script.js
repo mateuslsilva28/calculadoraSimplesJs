@@ -1,7 +1,7 @@
 const nmrTela = document.getElementById("resultado")
-
 var valoresEspaco = '';
 var valores = []
+
 function pegarNumero(numero){
     if(nmrTela.innerHTML == "0"){
         nmrTela.innerHTML = numero
@@ -27,17 +27,9 @@ function dividir(){
 }
 
 function verificar(sinal){
-    var caracteres = nmrTela.innerHTML.split('')
-    if (caracteres[0] != sinal){
-        valoresEspaco = nmrTela.innerHTML.split(' ')
-        valores.push(parseFloat(nmrTela.innerHTML))
-        nmrTela.innerHTML+=  ` ${sinal} `
-    }
-    else{
-        valoresEspaco = nmrTela.innerHTML.split(' ')
-        valores.push(parseFloat(nmrTela.innerHTML))
-        nmrTela.innerHTML+= ` ${sinal} `
-    }
+    valoresEspaco = nmrTela.innerHTML.split(' ')
+    valores.push(parseFloat(nmrTela.innerHTML))
+    nmrTela.innerHTML+= ` ${sinal} `
     valores.push(sinal)
 }
 
@@ -92,31 +84,42 @@ function darResultado() {
     var resultado = 0
     var operacao = valores[1]
     if(operacao == '-'){
-        valoresEspaco = nmrTela.innerHTML.split(' ')
-        valores.push(valoresEspaco[2])
-        
-        resultado = parseFloat(valores[0]) - parseFloat(valores[2])
-        nmrTela.innerHTML= resultado
+        tratarResultado('-')
     }
     else if(operacao =='+'){
-        valoresEspaco = nmrTela.innerHTML.split(' ')
-        valores.push(valoresEspaco[2])
-        resultado = parseFloat(valores[0]) + parseFloat(valores[2])
-        nmrTela.innerHTML= resultado
+        tratarResultado('+')
     }
     else if(operacao == 'x'){
-        valoresEspaco = nmrTela.innerHTML.split(' ')
-        valores.push(valoresEspaco[2])
-        resultado = parseFloat(valores[0]) * parseFloat(valores[2])
-        nmrTela.innerHTML= resultado
+        tratarResultado('*')
     }
     else if(operacao == '/'){
-        valoresEspaco = nmrTela.innerHTML.split(' ')
-        valores.push(valoresEspaco[2])
-        resultado = parseFloat(valores[0]) / parseFloat(valores[2])
-        nmrTela.innerHTML= resultado
+        tratarResultado('/')
     }
     valores.splice(0,3)
+
+    function tratarResultado(operacao){
+        valoresEspaco = nmrTela.innerHTML.split(' ')
+        valores.push(valoresEspaco[2])
+        switch(operacao){
+            case '-':
+                resultado = parseFloat(valores[0]) - parseFloat(valores[2])
+                nmrTela.innerHTML= resultado
+                break;
+            case '+':
+                resultado = parseFloat(valores[0]) + parseFloat(valores[2])
+                nmrTela.innerHTML= resultado
+                break;
+            case '*':
+                console.log('chegou')
+                resultado = parseFloat(valores[0]) * parseFloat(valores[2])
+                nmrTela.innerHTML= resultado
+                break;
+            case '/':
+                resultado = parseFloat(valores[0]) / parseFloat(valores[2])
+                nmrTela.innerHTML= resultado
+                break;
+        }
+    }
 }
 
 function limpar(){
