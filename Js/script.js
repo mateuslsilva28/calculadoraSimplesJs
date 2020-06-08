@@ -47,10 +47,9 @@ function colocarPonto(){
     var caracteresDaConta = []
     var caracteresValor1= []
     var caracteresValor2 = []
-    
     caracteresDaConta.push(nmrTela.innerHTML.trim().split(' '))//separa entre valor 1, operação e valor2
     caracteresValor1.push(caracteresDaConta[0][0].split(''))//separa cada caractere do valor 1
-    
+
     if(caracteresDaConta[0].length==3){
         caracteresValor2.push(caracteresDaConta[0][2].split(''))//se exister 3 posições, separa cada caractere do valor 2
         for(let i in caracteresValor2[0]){
