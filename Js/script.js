@@ -1,7 +1,7 @@
 const nmrTela = document.getElementById("resultado")
 var valoresEspaco = '';
 var valores = []
-window.addEventListener("keydown", move);
+window.addEventListener("keydown", teclado);
 
 function pegarNumero(numero){
     if(nmrTela.innerHTML == "0"){
@@ -40,18 +40,44 @@ function porcentagem () {
     var caracteres = nmrTela.innerHTML.split(' ')
     var valorPorCento = parseFloat(caracteres[2]) / 100
     nmrTela.innerHTML+= '%'
-    console.log(nmrTela.innerHTML)
     valores.push(valorPorCento)
 }
 
 function colocarPonto(){
-    nmrTela.innerHTML+='.'    
+    var caracteresDaConta = []
+    var caracteresValor1= []
+    var caracteresValor2 = []
+    
+    caracteresDaConta.push(nmrTela.innerHTML.trim().split(' '))//separa entre valor 1, operação e valor2
+    caracteresValor1.push(caracteresDaConta[0][0].split(''))//separa cada caractere do valor 1
+    
+    if(caracteresDaConta[0].length==3){
+        caracteresValor2.push(caracteresDaConta[0][2].split(''))//se exister 3 posições, separa cada caractere do valor 2
+        for(let i in caracteresValor2[0]){
+            if(caracteresValor2[0][i]=='.'){
+                var acumulaPontoValor2 = '.'
+            }
+        }
+        
+        if(!(acumulaPontoValor2=='.')){
+            nmrTela.innerHTML+='.'
+        }
+    }
+
+    for(let i in caracteresValor1[0]){
+        if(caracteresValor1[0][i]=='.'){
+            var acumulaPontoValor1 = '.'
+        }
+    }
+    if(!(acumulaPontoValor1=='.')){
+        nmrTela.innerHTML+='.'
+    }
 }
 
 function mudarSinal(){
+    var caracteres = nmrTela.innerHTML.split('')
+    var nmrAtual = parseFloat(nmrTela.innerHTML);
     if (valores.length == 0){
-        var caracteres = nmrTela.innerHTML.split('')
-        var nmrAtual = parseFloat(nmrTela.innerHTML);
         if(nmrAtual != 0){
             if(caracteres[0] == "-"){        
                 caracteres.shift()
@@ -63,9 +89,6 @@ function mudarSinal(){
         }
     }
     else {
-        var caracteres = nmrTela.innerHTML.split(' ')
-        var nmrAtual = parseFloat(nmrTela.innerHTML);
-        console.log(caracteres)
         let caracteres2Valor = caracteres[2].split('')
         if(caracteres2Valor[0] != "-"){
             let novosCaracteres = '-'
@@ -148,7 +171,7 @@ function apagarUltimo (){
     }
 }
 
-function move(){
+function teclado(){
     var tecla=event.keyCode;
     
     switch(tecla){
@@ -210,5 +233,4 @@ function move(){
             limpar();
             break;
     }
-    console.log(tecla)
 }
