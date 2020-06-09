@@ -56,7 +56,7 @@ function colocarPonto(){
     }
 
     verificarSeExistePonto(caracteresValor1)
-    
+
     function verificarSeExistePonto(caracteresValor){
         for(let i in caracteresValor[0]){
             if(caracteresValor[0][i]=='.'){
@@ -71,34 +71,47 @@ function colocarPonto(){
 }
 
 function mudarSinal(){
-    var caracteres = nmrTela.innerHTML.split('')
-    var nmrAtual = parseFloat(nmrTela.innerHTML);
-    if (valores.length == 0){
-        if(nmrAtual != 0){
-            if(caracteres[0] == "-"){        
-                caracteres.shift()
-                nmrTela.innerHTML = caracteres
-            } 
-            else {
-                nmrTela.innerHTML = `-${nmrAtual}`
-            }
+    const caracteresDaConta = nmrTela.innerHTML.trim().split(' ')
+    let caracteresValor1 = caracteresDaConta[0].split('')
+    let valor1 = ''
+    let valor2 = ''
+
+    if(caracteresDaConta.length == 3){
+        var caracteresValor2 = caracteresDaConta[2].split('')
+        
+        if(caracteresValor2[0] == '-'){
+            caracteresValor2.shift()
+            imprimirValor2()
+        }
+        else{
+            caracteresValor2.unshift('-')
+            imprimirValor2();
         }
     }
-    else {
-        let caracteres2Valor = caracteres[2].split('')
-        if(caracteres2Valor[0] != "-"){
-            let novosCaracteres = '-'
-            for (let i in caracteres2Valor){
-                novosCaracteres += caracteres2Valor[i]
-            }
-            caracteres[2] = novosCaracteres
-            nmrTela.innerHTML = `${caracteres[0]} ${caracteres[1]} ${caracteres[2]}`
+
+    if(valores.length == 0){
+        if(caracteresValor1[0] == "-"){
+            caracteresValor1.shift()
+            imprimirValor1()
         }
-        else {
-            let novosCaracteres = caracteres[2].split('')
-            novosCaracteres.shift()
-            nmrTela.innerHTML = `${caracteres[0]} ${caracteres[1]} ${novosCaracteres[0]}`
+        else{
+            caracteresValor1.unshift('-')
+            imprimirValor1()
         }
+    }
+
+    function imprimirValor2(){
+        caracteresValor2.forEach(valor => {
+            valor2+= valor
+        })
+        nmrTela.innerHTML = `${caracteresDaConta[0]} ${caracteresDaConta[1]} ${valor2}`
+    }
+
+    function imprimirValor1(){
+        caracteresValor1.forEach(valor => {
+            valor1+= valor;
+        });
+        nmrTela.innerHTML = valor1
     }
 }
 
