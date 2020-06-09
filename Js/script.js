@@ -128,28 +128,27 @@ function darResultado() {
         switch(operacao){
             case '-':
                 resultado = parseFloat(valores[0]) - parseFloat(valores[2])
-                nmrTela.innerHTML= resultado
+                limpar(resultado)
                 break;
             case '+':
                 resultado = parseFloat(valores[0]) + parseFloat(valores[2])
-                nmrTela.innerHTML= resultado
+                limpar(resultado)
                 break;
             case '*':
-                console.log('chegou')
                 resultado = parseFloat(valores[0]) * parseFloat(valores[2])
-                nmrTela.innerHTML= resultado
+                limpar(resultado)
                 break;
             case '/':
                 resultado = parseFloat(valores[0]) / parseFloat(valores[2])
-                nmrTela.innerHTML= resultado
+                limpar(resultado)
                 break;
         }
     }
 }
 
-function limpar(){
+function limpar(valor){
     valores.splice(0,3)
-    nmrTela.innerHTML = "0"
+    nmrTela.innerHTML = valor
 }
 
 function apagarUltimo (){
