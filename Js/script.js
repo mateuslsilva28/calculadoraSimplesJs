@@ -38,9 +38,18 @@ function verificar(sinal){
 
 function porcentagem () {
     var caracteres = nmrTela.innerHTML.split(' ')
-    var valorPorCento = parseFloat(caracteres[2]) / 100
-    nmrTela.innerHTML+= '%'
-    valores.push(valorPorCento)
+    console.log(caracteres.length, caracteres)
+    if(caracteres.length == 3){
+        var valorPorCento = parseFloat(caracteres[2]) / 100
+        var caracteresValor2 = caracteres[2].split('')
+        console.log(caracteresValor2.length, caracteresValor2)
+        if(caracteresValor2.length != 0){
+            if(caracteresValor2[caracteresValor2.length - 1] != "%"){
+                nmrTela.innerHTML+= '%'
+            }
+            valores.push(valorPorCento)
+        }
+    }
 }
 
 function colocarPonto(){
