@@ -52,24 +52,21 @@ function colocarPonto(){
 
     if(caracteresDaConta[0].length==3){
         caracteresValor2.push(caracteresDaConta[0][2].split(''))//se exister 3 posições, separa cada caractere do valor 2
-        for(let i in caracteresValor2[0]){
-            if(caracteresValor2[0][i]=='.'){
-                var acumulaPontoValor2 = '.'
+        verificarSeExistePonto(caracteresValor2)
+    }
+
+    verificarSeExistePonto(caracteresValor1)
+    
+    function verificarSeExistePonto(caracteresValor){
+        for(let i in caracteresValor[0]){
+            if(caracteresValor[0][i]=='.'){
+                var acumuladora = '.'
             }
         }
         
-        if(!(acumulaPontoValor2=='.')){
+        if(!(acumuladora=='.')){
             nmrTela.innerHTML+='.'
         }
-    }
-
-    for(let i in caracteresValor1[0]){
-        if(caracteresValor1[0][i]=='.'){
-            var acumulaPontoValor1 = '.'
-        }
-    }
-    if(!(acumulaPontoValor1=='.')){
-        nmrTela.innerHTML+='.'
     }
 }
 
