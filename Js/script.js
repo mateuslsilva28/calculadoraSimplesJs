@@ -183,7 +183,14 @@ function teclado(){
         verificarSinal(tecla)
     }
     else switch(tecla){
+        case '*':
+            verificarSinal('x')
+            break;
+        case '%':
+            porcentagem()
+            break;
         case '.':
+        case ',':
             colocarPonto();
             break;
         case '=':
