@@ -74,37 +74,35 @@ function mudarSinal(){
         
         if(caracteresValor2[0] == '-'){
             caracteresValor2.shift()
-            imprimirValor2()
+            imprimirValor(caracteresValor2, valor2 ,caracteresDaConta)
         }
         else{
             caracteresValor2.unshift('-')
-            imprimirValor2();
+            imprimirValor(caracteresValor2, valor2, caracteresDaConta);
         }
     }
 
     if(valores.length == 0){
         if(caracteresValor1[0] == "-"){
             caracteresValor1.shift()
-            imprimirValor1()
+            imprimirValor(caracteresValor1, valor1)
         }
         else{
             caracteresValor1.unshift('-')
-            imprimirValor1()
+            imprimirValor(caracteresValor1, valor1)
         }
     }
 
-    function imprimirValor2(){
-        caracteresValor2.forEach(valor => {
-            valor2+= valor
-        })
-        nmrTela.innerHTML = `${caracteresDaConta[0]} ${caracteresDaConta[1]} ${valor2}`
-    }
-
-    function imprimirValor1(){
-        caracteresValor1.forEach(valor => {
-            valor1+= valor;
-        });
-        nmrTela.innerHTML = valor1
+    function imprimirValor(caracteresValor,  valorNumero, caracteresConta){
+        caracteresValor.forEach(valor =>{
+            valorNumero+= valor;
+        })        
+        if(caracteresConta!=undefined){
+            nmrTela.innerHTML = `${caracteresConta[0]} ${caracteresConta[1]} ${valorNumero}`            
+        }
+        else{
+            nmrTela.innerHTML = valorNumero           
+        }
     }
 }
 
