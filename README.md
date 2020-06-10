@@ -21,7 +21,8 @@ Essa calculadora funciona para calcular apenas dois valores.
 - Tecla BACKSPACE apaga um caractere por ver
 - Tecla ESC apaga todos os carcteres
 - Teclas vírgula e ponto final inserem um ponto no número
-- Tecla X insere o sinal de multiplicação na tela
+- Tecla X e * insere o sinal de multiplicação na tela
 - Tecla + insere o sinal de adição na tela
 - Tecla - insere o sinal de subtração na tela
 - Tecla / insere o sinal de divisão na tela
+- Tecla % insere o sinal de porcentagem
