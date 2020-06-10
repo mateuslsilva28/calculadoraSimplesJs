@@ -12,22 +12,7 @@ function pegarNumero(numero){
     }
 }
 
-function somar(){
-    verificar('+')
-}
-function subtrair(){
-    verificar('-')
-}
-
-function multiplicar(){
-    verificar('x')
-}
-
-function dividir(){
-    verificar('/')
-}
-
-function verificar(sinal){
+function verificarSinal(sinal){
     if(valores.length<=1){
         valoresEspaco = nmrTela.innerHTML.split(' ')
         valores.push(parseFloat(nmrTela.innerHTML))
@@ -42,7 +27,6 @@ function porcentagem () {
     if(caracteres.length == 3){
         var valorPorCento = parseFloat(caracteres[2]) / 100
         var caracteresValor2 = caracteres[2].split('')
-        console.log(caracteresValor2.length, caracteresValor2)
         if(caracteresValor2.length != 0){
             if(caracteresValor2[caracteresValor2.length - 1] != "%"){
                 nmrTela.innerHTML+= '%'
@@ -189,65 +173,28 @@ function apagarUltimo (){
 }
 
 function teclado(){
-    var tecla=event.keyCode;
-    
-    switch(tecla){
-        case 48:
-            pegarNumero(0)
+    const numbers = '0123456789'
+    const operadores = '+-/x'
+    var tecla = event.key
+    if(numbers.includes(tecla)){
+        pegarNumero(tecla)
+    }
+    else if(operadores.includes(tecla)){
+        verificarSinal(tecla)
+    }
+    else switch(tecla){
+        case '.':
+            colocarPonto();
             break;
-        case 49: 
-            pegarNumero(1) 
+        case '=':
+        case 'Enter':
+            darResultado();
             break;
-        case 50:
-            pegarNumero(2)
-            break;
-        case 51:
-            pegarNumero(3)
-            break
-        case 52:
-            pegarNumero(4)
-            break;
-        case 53:
-            pegarNumero(5)
-            break;
-        case 54: 
-            pegarNumero(6) 
-            break;
-        case 55:
-            pegarNumero(7)
-            break;
-        case 56:
-            pegarNumero(8)
-            break
-        case 57:
-            pegarNumero(9)
-            break;
-        case 88:
-            multiplicar()
-            break;
-        case 193:
-            dividir()
-            break;
-        case 187:
-            somar()
-            break;
-        case 188:
-            colocarPonto()
-            break;
-        case 189:
-            subtrair();
-            break;
-        case 190:
-            colocarPonto()
-            break;
-        case 13:
-            darResultado()
-            break;
-        case 8:
+        case 'Backspace':
             apagarUltimo()
             break;
-        case 27:
-            limpar();
+        case 'Escape':
+            limpar(0);
             break;
     }
 }
